@@ -1,4 +1,4 @@
-# Create your models here.
+from flask_login import UserMixin
 from app import db 
 
 class User(db.Model):
