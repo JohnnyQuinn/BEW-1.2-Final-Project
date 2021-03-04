@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField
-from wtforms.validators import DataRequired, Length
+from wtforms import StringField, SubmitField, IntegerField, SelectField
+from wtforms.validators import DataRequired, Length, NumberRange
 from app.models import Beer, Review
 
 class BeerSubmit(FlaskForm):
@@ -11,6 +11,7 @@ class BeerSubmit(FlaskForm):
 
 class BeerReview(FlaskForm):
     """ Form for reviewing a beer """
-    rating = IntegerField('rating')
-    comment = StringField('Comments')
+    # rating = IntegerField('rating')
+    rating = IntegerField('Rating (1 - 10)', validators=[DataRequired(), NumberRange(min=1, max=10)])
+    comment = StringField('Comments', validators=[DataRequired(), Length(min=3, max=60)])
     submit = SubmitField('Submit')

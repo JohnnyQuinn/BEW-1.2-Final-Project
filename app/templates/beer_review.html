@@ -2,6 +2,29 @@
 
 {% block content %}
 <main>
-    <!-- insert beer review form here -->
+    <form method="POST" action="{{ url_for('main.beer_review', beer_id=beer.id) }}">
+        {{ form.csrf_token }}
+        <fieldset>
+            <legend>Review for {{ beer.name }}</legend>
+
+            {{ form.rating.label }}
+            {{ form.rating }}
+            <ul>
+                {% for error in form.rating.errors %}
+                    <li class="error">{{ error }}</li>
+                {% endfor %}
+            </ul>
+
+            {{ form.comment.label }}
+            {{ form.comment }}
+            <ul>
+                {% for error in form.comment.errors %}
+                    <li class="error">{{ error }}</li>
+                {% endfor %}
+            </ul>
+
+            {{ form.submit }}
+        </fieldset>
+    </form>
 </main>
 {% endblock %}

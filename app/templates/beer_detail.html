@@ -8,5 +8,14 @@
     <a href="/beer_review/{{beer.id}}">Review this beer</a>
 
     <h4>Reviews: </h4>
+
+    <ol>
+        {% for review in reviews %}
+            <li>
+                <h5>Rating: {{ review.rating }}</h5>
+                <h5>Comment: {{ review.comment}}</h5>
+            </li>
+        {% endfor %}
+    </ol>
 </main>
 {% endblock %}
