@@ -2,6 +2,11 @@
 
 {% block content %}
 <main>
-    <!-- insert beer details here -->
+    <h2>{{ beer.name }}</h2>
+    <h3>{{ beer.brand }}</h3>
+
+    <a href="/beer_review/{{beer.id}}">Review this beer</a>
+
+    <h4>Reviews: </h4>
 </main>
 {% endblock %}
