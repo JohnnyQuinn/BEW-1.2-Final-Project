@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<nav>
-    <h1>beercrowd</h1>
-    <a href="/login">Login</a>
-    <a href="/logout">Logout</a>
-    <a href="/signup">Signup</a>
-</nav>
 <div>
+    <h2>Beers:</h2>
+    <a href="/beer_submit">Submit a beer! </a>
     <ul>
-        <!-- insert beer reviews here -->
+        {% for beer in all_beers %}
+            <li>
+                <a href="/beer_detail/{{beer.id}}">
+                    <h2>{{ beer.name }}</h2>
+                </a>
+                <p> {{ beer.brand }}</p>
+            </li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}

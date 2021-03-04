@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project Title</title>
+        <title>beercrowd</title>
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
-        <!-- Add base html here. -->
-        
+        <nav>
+            <a href="/">
+                <h1>beercrowd</h1>
+            </a>
+            <a href="/login">Login</a>
+            <a href="/logout">Logout</a>
+            <a href="/signup">Signup</a>
+        </nav>
+        {% for message in get_flashed_messages() %}
+            <p>{{ message }}</p>
+        {% endfor %}
         {% block content %}{% endblock %}
     </body>
 </html>

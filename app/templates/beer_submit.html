@@ -2,6 +2,30 @@
 
 {% block content %}
 <main>
-    <!-- display form to submit a beer -->
+    <form method="POST" action="{{ url_for('main.beer_submit') }}">
+        {{ form.csrf_token }}
+        <fieldset>
+            <legend>Enter a beer's name and brand</legend>
+
+            {{ form.name.label }}
+            {{ form.name }}
+            <ul>
+                {% for error in form.name.errors %}
+                    <li class="error">{{ error }}</li>
+                {% endfor %}
+            </ul>
+
+            {{ form.brand.label }}
+            {{ form.brand }}
+            <ul>
+                {% for error in form.brand.errors %}
+                    <li class="error">{{ error }}</li>
+                {% endfor %}
+            </ul>
+
+            {{ form.submit }}
+
+        </fieldset>
+    </form>
 </main>
-{% endblcok %}
+{% endblock %}

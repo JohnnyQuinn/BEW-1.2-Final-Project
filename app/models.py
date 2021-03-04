@@ -9,8 +9,8 @@ class User(db.Model):
 
 class Beer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20))
-    brand = db.Column(db.String(20))
+    name = db.Column(db.String(20), nullable=False)
+    brand = db.Column(db.String(20), nullable=False )
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)

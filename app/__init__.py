@@ -26,7 +26,7 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 bcrypt = Bcrypt(app)
-
+    
 ###########################
 # Blueprints
 ###########################
