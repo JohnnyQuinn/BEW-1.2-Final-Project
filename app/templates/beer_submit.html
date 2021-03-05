@@ -5,7 +5,7 @@
     <form method="POST" action="{{ url_for('main.beer_submit') }}">
         {{ form.csrf_token }}
         <fieldset>
-            <legend>Enter a beer's name and brand</legend>
+            <legend><h1>Beer submission</h1></legend>
 
             {{ form.name.label }}
             {{ form.name }}
